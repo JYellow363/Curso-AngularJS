@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html ng-app="mainModule">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hola Mundo con AngularJS</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="controller.js"></script>
+  </head>
+  <body ng-controller="FiltersController">
+    {{mi_html | removeHtml}}
+    <br />
+    {{mi_json | json}}
+    <br />
+    {{costo | currency:'S/.'}}
+  </body>
+</html>
