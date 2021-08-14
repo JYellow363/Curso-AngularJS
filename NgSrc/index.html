@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app="CustomDirective">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hola Mundo con AngularJS</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="app.js"></script>
+    <style>
+      .circular {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body ng-controller="AppCtrl">
+    <ul class="no-list" ng-cloak>
+      <li ng-repeat="repo in repos">
+        <div
+          class="circular"
+          back-img="{{repo.owner.avatar_url}}"
+          style="background-size: cover"
+        ></div>
+        <a>{{repo.name}}</a>
+      </li>
+    </ul>
+  </body>
+</html>

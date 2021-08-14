@@ -1,0 +1,16 @@
+<input type="text" auto-complete="repos" placeholder="Buscar repositorio" />
+<ul class="no-list">
+  <li
+    ng-repeat="repo in reposAux"
+    ng-hide="main_repo && main_repo != repo.name"
+  >
+    <a href="#/repo/{{repo.name}}">
+      <div
+        class="circular"
+        back-img="{{repo.owner.avatar_url}}"
+        style="background-size: cover"
+      ></div>
+      <h2>{{repo.full_name}}</h2>
+    </a>
+  </li>
+</ul>

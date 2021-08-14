@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app="CustomDirective">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="autocomplete-jquery-ui.structure.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" rel="stylesheet"/>
+
+    <title>Custom Directive</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="autocomplete-jquery-ui.js"></script>
+    <script src="app.js"></script>
+    <style>
+      .circular {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: inline-block;
+      }
+      .no-list li {
+        list-style-type: none;
+      }
+      body, html {
+        background-color: #eee;
+        margin: 0px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body ng-controller="AppCtrl">
+    <input
+      type="text"
+      auto-complete="repos"
+      placeholder="Buscar repositorio"
+    />
+    <ul class="no-list">
+      <li
+        ng-repeat="repo in reposAux"
+        ng-hide="main_repo && main_repo != repo.name"
+      >
+        <div
+          class="circular"
+          back-img="{{repo.owner.avatar_url}}"
+          style="background-size: cover"
+        ></div>
+        <h2>{{repo.full_name}}</h2>
+      </li>
+    </ul>
+  </body>
+</html>
